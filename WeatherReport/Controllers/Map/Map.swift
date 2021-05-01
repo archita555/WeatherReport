@@ -44,14 +44,7 @@ class Map: UIViewController,MKMapViewDelegate {
         let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
         viewMap.setCameraZoomRange(zoomRange, animated: true)
                
-              /*
-               let london = MKPointAnnotation()
-               london.title = "London"
-               london.coordinate = CLLocationCoordinate2D(latitude: 17, longitude: 78)
-               viewMap.addAnnotation(london)
-               //viewMap.cameraZoomRange = (minCenterCoordinateDistance: 100, maxCenterCoordinateDistance: 500)
-               viewMap.setCameraZoomRange(viewMap.cameraZoomRange, animated: true)
-        */
+              
                
     }
     
@@ -112,17 +105,7 @@ class Map: UIViewController,MKMapViewDelegate {
         
     }
     
-    func centerMapOnLocation(_ location: CLLocation, mapView: MKMapView) {
-        let region = MKCoordinateRegion( center: location.coordinate, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
-        mapView.setRegion(mapView.regionThatFits(region), animated: true)
-        
-        /*
-        let regionRadius: CLLocationDistance = 0.2
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
-                                                  latitudinalMeters: regionRadius , longitudinalMeters: regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-        */
-    }
+    
     
     // MARK: - Get location name
     func getLocation(lat: CLLocationDegrees , long: CLLocationDegrees){

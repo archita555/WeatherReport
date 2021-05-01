@@ -52,8 +52,9 @@ class City: UIViewController {
         
         Connectionmanager.callAPI(api, url: baseUrl) { (result,statusCode) in
             print(result)
-            
+        DispatchQueue.main.async {
             removeLoading(view: self.view)
+        }
                      print(result)
                  
                      if result is Error {

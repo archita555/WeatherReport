@@ -13,6 +13,8 @@ import CoreData
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 func insertData(name: String,latitude: String, longitude: String){
+    
+    
     let context = appDelegate.persistentContainer.viewContext
 
     let entity = NSEntityDescription.entity(forEntityName: "Cities", in: context)
@@ -39,9 +41,7 @@ func insertData(name: String,latitude: String, longitude: String){
 
 func fetchData() -> [NSManagedObject] {
     let context = appDelegate.persistentContainer.viewContext
-    var name = String()
-    var lat = String()
-    var long = String()
+    
     var arrData = [NSManagedObject]()
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
     
@@ -66,7 +66,6 @@ func fetchData() -> [NSManagedObject] {
 
 func deleteData(dict: NSManagedObject) -> Bool{
     
-  
     let context = appDelegate.persistentContainer.viewContext
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cities")
     
