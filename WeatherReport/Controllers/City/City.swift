@@ -45,6 +45,7 @@ class City: UIViewController {
     }
     // MARK: - Get city details
     func getCityDetails(){
+        addLoading(view: self.view)
         let lat = dictCity?.value(forKey: "latitude") as? String
         let long = dictCity?.value(forKey: "longitude") as? String
         let api =   "\(oneDayForecast)lat=\(lat ?? "")&lon=\(long ?? "")&appid=\(apiKey)"
@@ -52,7 +53,7 @@ class City: UIViewController {
         Connectionmanager.callAPI(api, url: baseUrl) { (result,statusCode) in
             print(result)
             
-           // removeLoading(view: self.view)
+            removeLoading(view: self.view)
                      print(result)
                  
                      if result is Error {
