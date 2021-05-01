@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+// MARK: - Loading 
 var loadingBackground = UIView()
 var indicator = UIActivityIndicatorView()
 var loadingText = UILabel()
