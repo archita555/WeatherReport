@@ -88,6 +88,29 @@ func addLoading(view:UIView) -> Void {
     //        loadingText = nil
 }
 
+func isNullString(inputString:String) -> Bool {
+    
+    var outputString : String?
+    
+    let value: AnyObject? = inputString as AnyObject?
+    
+    if (value is NSString) {
+        outputString = String(format: "%@", inputString);
+    } else if (value is NSNumber) {
+        outputString = String(format: "%d", inputString);
+    } else {
+        outputString = ""
+    }
+    
+    let x: AnyObject = NSNull()
+    
+    if ((outputString == nil) || (outputString == x as? String) || (outputString?.count == 0) || (outputString == "") || (outputString == "(NULL)") || (outputString == "<NULL>") || (outputString == "<null>") || (outputString == "(null)")) {
+        return true
+    } else {
+        return false
+    }
+}
+
 
 extension String {
     func isEmptyString()->Bool {

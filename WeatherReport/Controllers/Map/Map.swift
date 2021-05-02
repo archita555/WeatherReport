@@ -60,13 +60,36 @@ class Map: UIViewController,MKMapViewDelegate {
     
     // MARK: - Button Actions
     @IBAction func addAction(_ sender: Any) {
-        showAlertView(title: "", message: "Are you sure you want to add the city?", preferredStyle: .alert, okLabel: "No", cancelLabel: "Yes", targetViewController: self, isSingleAlert: false, okHandler: { (action) -> Void in
-            
-        }) { (action) -> Void in
-            insertData(name: self.name, latitude: self.latitude, longitude: self.longitude)
-            self.navigationController?.popViewController(animated: true)
-                 
+        let arrData = fetchData()
+        for data in arrData {
+        let cityName = data.value(forKey: "name") as? String
+            if(cityName == self.name){
+                let message = name + " is already bookmarked!"
+              commonAlert(title: "", msg: message, curView: self)
+              return
+            }
+        
+       }
+        
+        
+        
+        
+        
+        let isInvalidName = isNullString(inputString: self.name)
+        
+        if(!isInvalidName && !(name.isEmptyString())){
+            showAlertView(title: "", message: "Are you sure you want to add the city?", preferredStyle: .alert, okLabel: "No", cancelLabel: "Yes", targetViewController: self, isSingleAlert: false, okHandler: { (action) -> Void in
+                
+            }) { (action) -> Void in
+                
+                insertData(name: self.name, latitude: self.latitude, longitude: self.longitude)
+                self.navigationController?.popViewController(animated: true)
+                     
+            }
+        }else{
+            commonAlert(title: "", msg: "Please choose a valid location!", curView: self)
         }
+        
         
     }
     
