@@ -12,10 +12,7 @@ class Connectionmanager: NSObject {
 
     class func callAPI(_ api: String,url: String, completionhandler:@escaping (Any,Int) -> ()){
         
-       // var request = URLRequest(url: URL(string: "http://api.openweathermap.org/data/2.5/forecast?lat=0&lon=0&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric")!)
-     //   request.httpMethod = "GET"
-      //  request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
-      //  request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+       
         let finalUrl: String = baseUrl + api
         let url = URL(string: finalUrl)!
 
